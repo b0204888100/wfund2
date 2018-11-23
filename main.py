@@ -3,7 +3,7 @@ import httplib2
 import logging 
 from googleapiclient import discovery
 from google.appengine.api import memcache
-from oauth2client.appengine import AppAssertionCredentials
+from oauth2client.contrib.appengine import AppAssertionCredentials
 
 from flask import Flask
 app = Flask(__name__)
