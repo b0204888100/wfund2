@@ -13,7 +13,10 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 INSTANCE_NAME = 'hk01'
 INSTANCE_NAME2 = 'hk02'
+INSTANCE_NAME3 = 'instance-2'
+INSTANCE_NAME4 = 'tx02'
 INSTANCE_ZONE = 'asia-east2-a'
+INSTANCE_ZONE2 = 'asia-east1-a'
 PROJECT = 'continual-loop-166008'
 
 @app.route('/')
@@ -30,10 +33,16 @@ def start_vm():
     # Start the VM!
     result = compute.instances().start(instance=INSTANCE_NAME, zone=INSTANCE_ZONE, project=PROJECT).execute()
     result2 = compute.instances().start(instance=INSTANCE_NAME2, zone=INSTANCE_ZONE, project=PROJECT).execute()
+    result3 = compute.instances().start(instance=INSTANCE_NAME3, zone=INSTANCE_ZONE2, project=PROJECT).execute()
+    result4 = compute.instances().start(instance=INSTANCE_NAME4, zone=INSTANCE_ZONE2, project=PROJECT).execute()
     logging.debug(result)
     logging.debug(result2)
+    logging.debug(result3)
+    logging.debug(result4)
     return json.dumps(result, indent=4)
     return json.dumps(result2, indent=4)
+    return json.dumps(result3, indent=4)
+    return json.dumps(result4, indent=4)
   
 @app.errorhandler(404)
 def page_not_found(e):
