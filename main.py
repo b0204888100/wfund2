@@ -11,9 +11,10 @@ app.config['DEBUG'] = True
 
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
-INSTANCE_NAME = 'instance-1'
-INSTANCE_ZONE = 'asia-east1-b'
-PROJECT = 'maximal-port-187809'
+INSTANCE_NAME = 'hk01'
+INSTANCE_NAME2 = 'hk02'
+INSTANCE_ZONE = 'asia-east2-a'
+PROJECT = 'continual-loop-166008'
 
 @app.route('/')
 def hello():
@@ -28,9 +29,12 @@ def start_vm():
     
     # Start the VM!
     result = compute.instances().start(instance=INSTANCE_NAME, zone=INSTANCE_ZONE, project=PROJECT).execute()
+    result2 = compute.instances().start(instance=INSTANCE_NAME2, zone=INSTANCE_ZONE, project=PROJECT).execute()
     logging.debug(result)
+    logging.debug(result2)
     return json.dumps(result, indent=4)
-    
+    return json.dumps(result2, indent=4)
+  
 @app.errorhandler(404)
 def page_not_found(e):
     """Return a custom 404 error."""
