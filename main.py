@@ -13,7 +13,7 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 INSTANCE_NAME = 'hk01'
 INSTANCE_NAME2 = 'hk02'
-INSTANCE_NAME3 = 'instance-2'
+INSTANCE_NAME3 = 'op-2020'
 INSTANCE_NAME4 = 'tx02'
 INSTANCE_ZONE = 'asia-east2-a'
 INSTANCE_ZONE2 = 'asia-east1-a'
