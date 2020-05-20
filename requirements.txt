@@ -5,5 +5,5 @@
 #
 # Note: The `lib` directory is added to `sys.path` by `appengine_config.py`.
 Flask==0.12
-httplib2==0.10.3
+httplib2==0.18.0
 google-api-python-clien
